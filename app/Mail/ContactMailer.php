@@ -10,10 +10,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class ContactMailer extends Mailable
 {
     use Queueable, SerializesModels;
+
     /**
      * Tạo biến chứa dữ liệu dùng để render email template
      */
     public $data;
+
     /**
      * Create a new message instance.
      *
@@ -21,8 +23,11 @@ class ContactMailer extends Mailable
      */
     public function __construct($data)
     {
+        // email của khách
+        // và nội dung lời nhắn của khách
         $this->data = $data;
     }
+
     /**
      * Build the message.
      *
@@ -30,10 +35,9 @@ class ContactMailer extends Mailable
      */
     public function build()
     {
-        $email = $this->data['email'];
-        return $this->from(env('MAIL_FROM_ADDRESS', 'hotro.nentangtoituonglai@gmail.com'), env('MAIL_FROM_NAME', 'Sunshine'))
-            ->replyTo($email)
-            ->subject("Có khách $email vừa liên hệ")
+        $emailcuakhach = $this->data['email'];
+        return $this->from('hotro.nentangtoituonglai@gmail.com', 'Hệ thống gởi mail tự động của Sunshine')
+            ->subject('Có khách hàng nào đó mới liên hệ...')
             ->view('emails.contact-email')
             ->with('data', $this->data);
     }

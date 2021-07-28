@@ -17,8 +17,11 @@
                         My Account
                     </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                    <a href="{{ route('app.setLocale', ['locale' => 'en']) }}" class="flex-c-m trans-04 p-lr-25">
                         EN
+                    </a>
+                    <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}" class="flex-c-m trans-04 p-lr-25">
+                        VI
                     </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
@@ -134,7 +137,10 @@
                     </a>
 
                     <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        EN
+                        English
+                    </a>
+                    <a href="#" class="flex-c-m p-lr-10 trans-04">
+                        VI
                     </a>
 
                     <a href="#" class="flex-c-m p-lr-10 trans-04">
